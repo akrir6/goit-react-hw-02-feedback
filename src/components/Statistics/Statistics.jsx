@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
+import { StatsList, ListItem, Totals } from './Statistics.styled';
 
 export const Statistics = ({ list, total, positivePercentage }) => { 
     return (
         <>
-            <ul>
+            <StatsList>
                 {Object.keys(list).map(item => (
-                    <li key={item}>{item}: {list[item]}</li>
+                    <ListItem key={item}>{item}: <b>{list[item]}</b></ListItem>
                 ))}
-            </ul>
-            <p>Total: {total}</p>
-            <p>Positive feedback: {positivePercentage}%</p>
+            </StatsList>
+            <Totals>Total: {total}</Totals>
+            <Totals>Positive feedback: {positivePercentage}%</Totals>
         </>
     );
 }
