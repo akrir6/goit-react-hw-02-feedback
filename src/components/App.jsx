@@ -18,13 +18,13 @@ export class App extends Component {
   }
 
   countTotalFeedback = () => {
-    Object.values(this.state).reduce((total, item) =>
+    return Object.values(this.state).reduce((total, item) =>
       total + item, 0);
   }
   
 
   countPositiveFeedbackPercentage = () => {
-    Math.round(this.countTotalFeedback()
+    return Math.round(this.countTotalFeedback()
       && this.state.good * 100 / this.countTotalFeedback());
   }
   
