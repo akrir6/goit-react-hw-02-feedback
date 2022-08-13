@@ -12,17 +12,21 @@ export class App extends Component {
   
   onLeaveFeedback = (e) => {
     const { name } = e.target;
-    this.setState(prevState => ({[name]: prevState[name] + 1}));
+    this.setState(prevState => (
+      { [name]: prevState[name] + 1 }
+    ));
   }
 
-  countTotalFeedback = () =>
+  countTotalFeedback = () => {
     Object.values(this.state).reduce((total, item) =>
       total + item, 0);
+  }
   
 
-  countPositiveFeedbackPercentage = () =>
+  countPositiveFeedbackPercentage = () => {
     Math.round(this.countTotalFeedback()
       && this.state.good * 100 / this.countTotalFeedback());
+  }
   
 
   render() {
